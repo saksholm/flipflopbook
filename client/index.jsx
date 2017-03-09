@@ -2,11 +2,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 
-import MainWrapper from './components/root/MainWrapper.jsx';
+import Routes from './components/Routes.jsx';
 
 Meteor.startup(() => {
   render(
-    <MainWrapper />,
+    <div>{Routes}</div>,
     document.getElementById('root'),
   );
 });

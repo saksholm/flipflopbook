@@ -1,13 +1,14 @@
 import React from 'react';
 
 import MenuBar from './MenuBar.jsx';
-import Content from './Content.jsx';
+//import Content from './Content.jsx';
 
-const MainWrapper = () => {
+const MainWrapper = (props) => {
+  console.log(props);
   return (
     <div className="MainWrapper">
       <MenuBar className="MenuBar" />
-      <Content className="Content"/>
+      {props.children}
     </div>
   )
 }

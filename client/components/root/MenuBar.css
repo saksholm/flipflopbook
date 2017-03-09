@@ -1,24 +1,25 @@
 .MenuBar .fa{
-  color:#2e2e2e;
+  color:#fff;
+  font-size:1.3rem;
 }
 .MenuBar a{
-  color:#2e2e2e;
+  color:#fff;
   text-decoration:none;
   display:flex;
   justify-content:center;
   flex-direction:row;
   align-items: center;
   width:100%;
-  padding:6px;
+  padding:10px;
   transition:background 200ms ease-out;
 }
 .MenuBar a.active{
-  background:#aaaaaa;
+  background:#e21350;
 }
 
 .MenuBar .tag{
   display:none;
-  margin-left:6px;
+  margin-left:10px;
 }
 
 @media screen and (min-width:800px){

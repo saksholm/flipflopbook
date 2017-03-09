@@ -5,7 +5,7 @@ import PostForm from './PostForm.jsx';
 export default class Feed extends React.Component {
     render() {
         return (
-            <div>
+            <div className='Feed content'>
               <PostForm />
               <PostList />
             </div>

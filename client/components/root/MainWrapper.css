@@ -10,7 +10,7 @@ body {
 }
 
 .MainWrapper .MenuBar {
-  border-color: #8d9355;
+  background-color: #e7e7e7;
   width: 80vw;
   padding: 10px;
 }

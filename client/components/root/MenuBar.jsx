@@ -1,12 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router';
-import FontAwesome from 'react-fontawesome';
+var FontAwesome = require('react-fontawesome');
 
 const MenuBar = () => {
   return (
     <div className="MenuBar">
-      <FontAwesome name="user" />
-      <Link to="/profile"><FontAwesome className="profileIcon" name="user" size="2x" />profile link</Link>
+      <Link to="/profile"><FontAwesome name='user' size='2x' />profile link</Link>
       <Link to="/feed">Feed link</Link>
     </div>
   )

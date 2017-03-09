@@ -16,7 +16,7 @@ export class FeedList extends React.Component {
 //      const demoPosts = [{type:"text", time:"10:00AM", author:"Someone", content:"Hello World!"}, {type:"image", time:"10:00AM", author:"Someone", content:"http://google.com"}];
         return (
             <div>
-              {this.props.data.feeds.map(post => {
+              {this.props.data.posts.map(post => {
                 return (
                   <Post key={post._id} author={post.handle} time={post.timestamp} type={post.type} content={post.message} />
                 )
@@ -29,8 +29,8 @@ export class FeedList extends React.Component {
 
 
 const query = gql`
-  query Feed {
-    feeds {
+  query Post {
+    posts {
       _id type message handle timestamp seenBy
     }
   }

@@ -1,7 +1,7 @@
 import { Accounts } from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
-import {Feeds} from './collections';
-import feedsMockData from './feedsMockData';
+import {Posts} from './collections';
+import postsMockData from './postsMockData';
 
 Accounts.onCreateUser((options, user) => {
   const firstName = user.services.facebook.first_name;
@@ -11,13 +11,13 @@ Accounts.onCreateUser((options, user) => {
 });
 
 Meteor.startup(() => {
-  const totalFeeds = Feeds.find({}).count();
-  if(totalFeeds === 0) {
-    feedsMockData.map((feed) => {
-      Feeds.insert(feed);
+  const totalPosts = Posts.find({}).count();
+  if(totalPosts === 0) {
+    postsMockData.map((post) => {
+      Posts.insert(post);
       return true;
     });
 
-    console.log("Added some feeds mockdata to you!");
+    console.log("Added some posts mockdata to you!");
   }
 });

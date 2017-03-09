@@ -1,6 +1,6 @@
 export default`
 
-type Feed {
+type Post {
   _id: ID,
   type: String!,
   message: String!,
@@ -10,11 +10,11 @@ type Feed {
 }
 
 type Query {
-  feeds: [Feed]!,
+  posts: [Post]!,
 }
 
 type Mutation {
-  addFeed(type: String!, message: String!): Feed!
+  addPost(type: String!, message: String!): Post!
 }
 
 schema {

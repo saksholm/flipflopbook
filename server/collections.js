@@ -1,5 +1,5 @@
 import {Mongo} from 'meteor/mongo';
 
-const Feeds = new Mongo.Collection('feeds');
+const Posts = new Mongo.Collection('posts');
 
-export {Feeds};
+export {Posts};

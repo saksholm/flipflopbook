@@ -1,16 +1,14 @@
-import {Feeds} from './collections';
+import {Posts} from './collections';
 import {currentTimestamp} from './tools';
-import feedsMockData from './feedsMockData';
 
-export default class FeedsRepository {
-  getFeed(skip) {
+export default class PostsRepository {
+  getPosts(skip) {
     // we can implement skip feature later
-    const feeds = Feeds.find({}).fetch();
-    return feeds;
-
+    const posts = Posts.find({}).fetch();
+    return posts;
   }
 
-  addFeed(obj) {
+  addPost(obj) {
     const addObj = {
       type: obj.type,
       message: obj.message,
@@ -19,7 +17,7 @@ export default class FeedsRepository {
       seenBy: [],
     };
 
-    const id = Feeds.insert(addObj);
+    const id = Posts.insert(addObj);
     addObj._id = id;
     return addObj;
 

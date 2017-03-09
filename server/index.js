@@ -2,7 +2,7 @@ import {createApolloServer} from 'meteor/apollo';
 import {makeExecutableSchema} from 'graphql-tools';
 import schema from './schema';
 import resolvers from './resolvers';
-import FeedsRepository from './connectors';
+import PostsRepository from './connectors';
 
 
 const executableSchema = makeExecutableSchema({
@@ -13,6 +13,6 @@ const executableSchema = makeExecutableSchema({
 createApolloServer({
   schema: executableSchema,
   context: {
-    Feeds: new FeedsRepository(),
+    Posts: new PostsRepository(),
   }
 });

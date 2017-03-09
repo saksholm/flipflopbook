@@ -1,14 +1,14 @@
 const resolvers = {
   Query: {
-    feeds(obj, args, context) {
-      return context.Feeds.getFeed();
+    posts(obj, args, context) {
+      return context.Posts.getPosts();
     }
   },
   Mutation: {
-    addFeed(obj, args, context) {
-      const newFeed = {type: args.type, handle: context.user.handle, message: args.message};
+    addPost(obj, args, context) {
+      const newPost = {type: args.type, handle: context.user.handle, message: args.message};
 
-      return context.Feeds.addFeed(newFeed);
+      return context.Posts.addPost(newPost);
     }
   }
 }

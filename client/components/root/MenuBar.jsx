@@ -5,8 +5,8 @@ var FontAwesome = require('react-fontawesome');
 const MenuBar = () => {
   return (
     <div className="MenuBar">
-      <Link to="/profile"><FontAwesome name='user' size='2x' />profile link</Link>
-      <Link to="/feed">Feed link</Link>
+      <Link to="/profile"><FontAwesome name='user' size='2x' /><span className='tag'>Profile</span></Link>
+      <Link to="/feed"><span className='tag'>Feed</span></Link>
     </div>
   )
 }

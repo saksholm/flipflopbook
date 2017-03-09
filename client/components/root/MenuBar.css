@@ -5,3 +5,13 @@
   color:#2e2e2e;
   text-decoration:none;
 }
+
+.MenuBar .tag{
+  display:none;
+}
+
+@media and screen (max-width:600px){
+  .MenuBar .tag{
+    display:inline-block;
+  }
+}

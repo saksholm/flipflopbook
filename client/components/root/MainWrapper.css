@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+
+.MainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.MainWrapper .MenuBar {
+  border-color: #8d9355;
+  width: 80vw;
+  padding: 10px;
+}
+
+.MainWrapper .Content {
+  border-color: #472262;
+  width: 80vw;
+  padding: 10px;
+  flex: 1 1;
+}
+
+
+@media (max-width: 800px) {
+  .MainWrapper .MenuBar {
+    width: 100vw;
+  }
+
+  .MainWrapper .Content {
+    width: 100vw;
+  }
+}

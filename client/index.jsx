@@ -2,9 +2,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 
+import MainWrapper from './components/root/MainWrapper.jsx';
+
 Meteor.startup(() => {
   render(
-    <div>Hello, FlipFloppers!</div>,
+    <MainWrapper />,
     document.getElementById('root'),
   );
 });

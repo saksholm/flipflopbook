@@ -1,9 +1,9 @@
 import React from 'react';
 
-export class PostForm extends React.Component {
+export default class PostForm extends React.Component {
 
-    onSubmit(event) {
-        event.preventDefault();
+    onSubmit(e) {
+        e.preventDefault();
         // const content = Meteor.user().profile.name;
         // this.props.submit({variables: {channelName: this.props.channelName, handle:name, message:this.refs.message.value}})
         // this.refs.message.value = '';
@@ -11,11 +11,13 @@ export class PostForm extends React.Component {
 
     render() {
 
-        return <div className="PostForm">
-          <form onSubmit={(event) => this.onSubmit(event)}>
-            <input type="text" ref="text"/>
-            <input type="submit"/>
-          </form>
-        </div>
+        return (
+          <div className="PostForm">
+            <form onSubmit={e => this.onSubmit(e)}>
+              <input type="text" ref="text"/>
+              <input type="submit"/>
+            </form>
+          </div>
+        )
     }
 }

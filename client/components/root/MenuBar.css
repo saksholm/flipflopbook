@@ -4,13 +4,24 @@
 .MenuBar a{
   color:#2e2e2e;
   text-decoration:none;
+  display:flex;
+  justify-content:center;
+  flex-direction:row;
+  align-items: center;
+  width:100%;
+  padding:6px;
+  transition:background 200ms ease-out;
+}
+.MenuBar a.active{
+  background:#aaaaaa;
 }
 
 .MenuBar .tag{
   display:none;
+  margin-left:6px;
 }
 
-@media and screen (max-width:600px){
+@media screen and (min-width:800px){
   .MenuBar .tag{
     display:inline-block;
   }

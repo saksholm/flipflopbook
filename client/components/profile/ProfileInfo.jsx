@@ -5,6 +5,8 @@ export default class ProfileInfo extends React.Component {
         return (
             <div className='ProfileInfo'>
               image and name here
+              {/* optional info */}
+              {/* Edit state */}
             </div>
             )
     }

@@ -30,7 +30,8 @@ type Post {
 
 type Query {
   posts: [Post]!,
-  currentUser: User!
+  currentUser: User!,
+  users:[User]!
 }
 
 type Mutation {

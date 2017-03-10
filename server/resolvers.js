@@ -8,6 +8,9 @@ const resolvers = {
     },
     currentUser(obj, args, context){
       return context.user.profile;
+    },
+    users(obj, args, context){
+      return context.users;
     }
   },
   Mutation: {

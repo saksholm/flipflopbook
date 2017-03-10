@@ -13,12 +13,13 @@ export default class PostsRepository {
       type: obj.type,
       message: obj.message,
       handle: obj.handle,
-      timestmap: currentTimestamp(),
+      timestamp: currentTimestamp(),
       seenBy: [],
     };
 
     const id = Posts.insert(addObj);
     addObj._id = id;
+
     return addObj;
 
   }

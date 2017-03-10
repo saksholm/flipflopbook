@@ -29,7 +29,7 @@ export class FeedList extends React.Component {
 
 
 const query = gql`
-  query Post {
+  query Posts {
     posts {
       _id type message handle timestamp seenBy
     }

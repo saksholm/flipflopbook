@@ -1,4 +1,7 @@
+// import { PointObject } from 'graphql-geojson';
+
 const resolvers = {
+//  PointObject: PointObject,
   Query: {
     posts(obj, args, context) {
       return context.Posts.getPosts();

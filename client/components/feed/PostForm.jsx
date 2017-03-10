@@ -61,7 +61,7 @@ export default graphql(mutation, {
             Posts: (previousResult, {mutationResult}) => {
               return update(previousResult, {
                 posts: {
-                  $push: [mutationResult.data.addPost],
+                  $unshift: [mutationResult.data.addPost],
                 }
               });
             }

@@ -16,7 +16,7 @@ class Profile extends React.Component {
             <div className='Profile content'>
               <ProfileInfo currentUser={this.props.data.currentUser} />
               <div>
-                <Feed currentUser={this.props.data.currentUser} hideForm />
+                <Feed currentUser={this.props.data.currentUser} hideForm own />
               </div>
             </div>
             )

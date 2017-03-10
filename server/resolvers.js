@@ -4,7 +4,7 @@ const resolvers = {
 //  PointObject: PointObject,
   Query: {
     posts(obj, args, context) {
-      return context.Posts.getPosts();
+      return context.Posts.getPosts(args.own, args.userId);
     },
     currentUser(obj, args, context){
       return context.user.profile;

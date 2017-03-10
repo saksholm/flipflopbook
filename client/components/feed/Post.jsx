@@ -7,8 +7,8 @@ export default class Post extends React.Component {
         return (
             <div className='PostContainer'>
               <div className="postHeader">
-                <div className="postTime">Posted at : {ta}</div>
-                <div className="postAuthor">by : {this.props.author}</div>
+                <div className="postAuthor">{this.props.author}</div>
+                <div className="postTime">{ta}</div>
               </div>
               <div className="postBody">
                 <div className="postContent">{this.props.content}</div>

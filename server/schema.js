@@ -29,7 +29,7 @@ type Post {
 }
 
 type Query {
-  posts: [Post]!,
+  posts(own: Boolean, userId: String): [Post]!,
   currentUser: User!,
   users:[User]!
 }

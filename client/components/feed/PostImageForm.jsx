@@ -6,9 +6,13 @@ import update from 'immutability-helper';
 import fileToBase64 from '../../utils/fileToBase64';
 
 class PostImageForm extends React.Component {
-  state = {
-    isBusy: false,
-  };
+  constructor(props) {
+      super(props);
+      this.state = {
+        isBusy: false,
+      };
+
+  }
 
   handleChange(e) {
     const file = e.target.files[0];

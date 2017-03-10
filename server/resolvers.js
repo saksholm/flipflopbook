@@ -5,6 +5,9 @@ const resolvers = {
   Query: {
     posts(obj, args, context) {
       return context.Posts.getPosts();
+    },
+    currentUser(obj, args, context){
+      return context.user;
     }
   },
   Mutation: {

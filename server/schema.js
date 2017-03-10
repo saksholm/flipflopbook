@@ -2,7 +2,7 @@ export default`
 
 type User {
     _id: String!,
-    firstName: String!,
+    firstName: String,
     lastName: String!,
     username: String!
     image: String!,
@@ -28,6 +28,7 @@ type Post {
 
 type Query {
   posts: [Post]!,
+  currentUser: User!
 }
 
 type Mutation {

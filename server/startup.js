@@ -7,8 +7,38 @@ Accounts.onCreateUser((options, user) => {
   const firstName = user.services.facebook.first_name;
   const lastName = user.services.facebook.last_name.substring(0,1);
   const userName = firstName + " " + lastName;
+  console.log(Meteor.user);
   return Object.assign({}, user, {userName});
 });
+
+
+
+
+Accounts.onLogin((attempt) => {
+   //console.log("attempt", attempt.connection);
+   console.log("user", Meteor.user());
+   const user = Meteor.user();
+   if(!user.profile){
+     console.log("Creating profile");
+     Meteor.users.update({_id:user._id}, {
+       $set:{
+         profile:{
+             firstName:user.services.facebook.first_name,
+             lastName:user.services.facebook.last_name,
+             username:user.services.facebook.name,
+             image:"http://",
+             location:{
+               name:"",
+               lat:0,
+               lng:0
+             }
+         }
+       }
+     });
+   }else{
+     console.log("Profile already created");
+   }
+ });
 
 Meteor.startup(() => {
   const totalPosts = Posts.find({}).count();

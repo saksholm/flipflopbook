@@ -22,6 +22,14 @@
   margin-left:10px;
 }
 
+.MenuBar .logout {
+  background-color: #ff5d5d;
+}
+
+.MenuBar .logout:hover {
+  background-color: #e64917;
+}
+
 @media screen and (min-width:800px){
   .MenuBar .tag{
     display:inline-block;

@@ -13,7 +13,7 @@ class ProfileInfo extends React.Component {
         return (
             <div className='ProfileInfo'>
               <div className="profilePicture">
-                <img src="https://graph.facebook.com/10155098577208234/picture?type=large" alt='Profile' />
+                <img src={this.props.data.currentUser.image} alt='Profile' />
               </div>
               <div className="profileName">
                 {this.props.data.currentUser.username}

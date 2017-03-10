@@ -6,12 +6,13 @@
 .ProfileInfo .profilePicture{
   width:200px;
   height:200px;
+  margin-right:11px;
 }
 .ProfileInfo .profilePicture img{
   width:100%;
 }
 .ProfileInfo .profileName{
-  font-size:32px; font-weight:bold; padding-left:11px;
+  font-size:32px; font-weight:bold;
 }
 
 @media screen and (max-width: 800px) {

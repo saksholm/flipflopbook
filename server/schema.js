@@ -8,8 +8,8 @@ type User {
     image: String!,
     facebookID: String!,
     location: Location,
-    followee: [User]!,
-    followers: [User]!
+    followee: [String]!,
+    followers: [String]!
 }
 
 type Location{
@@ -25,6 +25,7 @@ type Post {
   handle: String!,
   timestamp: Int!,
   seenBy: [String]!,
+  userId: String!
 }
 
 type Query {

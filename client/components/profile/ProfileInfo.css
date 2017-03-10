@@ -4,12 +4,22 @@
   justify-content: flex-start;
 }
 .ProfileInfo .profilePicture{
-  width:30%;
-  min-width:150px;
-  max-width:250px;
-  border:1px solid #000;
-
+  width:200px;
+  height:200px;
+}
+.ProfileInfo .profilePicture img{
+  width:100%;
 }
 .ProfileInfo .profileName{
-  font-size:32px; font-weight:bold;
+  font-size:32px; font-weight:bold; padding-left:11px;
+}
+
+@media screen and (max-width: 800px) {
+  .ProfileInfo .profilePicture{
+    width:100px;
+    height:100px;
+  }
+  .ProfileInfo .profileName{
+    font-size:26px; font-weight:bold;
+  }
 }

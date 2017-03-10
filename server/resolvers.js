@@ -19,6 +19,10 @@ const resolvers = {
       const newPost = {type: args.type, handle: context.user.userName, message: args.message, userId: context.user._id};
 
       return context.Posts.addPost(newPost);
+    },
+    addVote(obj, args, context) {
+      const newVote = {type: args.type, postId: args.postId, userId: context.user._id };
+      return context.Posts.addVote(newVote);
     }
   }
 }

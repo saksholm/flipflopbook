@@ -3,10 +3,17 @@ import Post from './Post.jsx';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
 
-export class FeedList extends React.Component {
-    render() {
-      console.log("this props", this.props.data.feeds);
+export class PostList extends React.Component {
+/*
+    shouldComponentUpdate(nextProps, nextState) {
 
+      if(this.props.data.loading === false || (nextProps.data.posts.length !== this.props.data.posts.length) ) {
+        return true;
+      }
+      return false;
+    }
+*/
+    render() {
       if(this.props.data.loading) {
         return <div>Loading data... please wait!</div>
       }
@@ -39,9 +46,9 @@ const query = gql`
 const PostListWithData = graphql(query, {
   options: ownProps => {
     return {
-      pollInterval: 5000,
+      pollInterval: 500,
     }
   },
-})(FeedList);
+})(PostList);
 
 export default PostListWithData;

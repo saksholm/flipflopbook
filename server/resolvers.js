@@ -11,7 +11,7 @@ const resolvers = {
       return context.user.profile;
     },
     users(obj, args, context){
-      return Meteor.users.find({},{fields:{usrname:1,profile:1}}).fetch();
+      return Meteor.users.find({},{fields:{username:1,profile:1}}).fetch();
     }
   },
   Mutation: {

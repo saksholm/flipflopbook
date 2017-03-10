@@ -11,8 +11,7 @@ export default class Post extends React.Component {
                 <div className="postTime">{ta}</div>
               </div>
               <div className="postBody">
-                <div className="postContent">{this.props.content}</div>
-
+                <div className="postContent">{this.props.content}</div>          
               </div>
             </div>
             )

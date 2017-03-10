@@ -2,12 +2,13 @@
   "name": "flipflopbook",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor --settings settings.json"
   },
   "dependencies": {
     "apollo-client": "^0.10.1",
     "babel-runtime": "^6.20.0",
     "body-parser": "^1.17.1",
+    "cloudinary": "^1.8.0",
     "express": "^4.15.2",
     "graphql": "^0.9.1",
     "graphql-geojson": "^1.0.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.23.0",
     "eslint": "^3.17.1",
     "eslint-config-react-app": "^0.6.1",
     "eslint-plugin-flowtype": "^2.30.3",

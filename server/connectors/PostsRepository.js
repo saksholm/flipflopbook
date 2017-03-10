@@ -1,7 +1,6 @@
-import {Posts} from './collections';
-import {currentTimestamp} from './tools';
 import {Meteor} from 'meteor/meteor';
-//import {Accounts} from 'accounts-base';
+import {Posts} from '../collections';
+import {currentTimestamp} from '../tools';
 
 export default class PostsRepository {
   getPosts(own,userId) {

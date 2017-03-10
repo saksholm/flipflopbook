@@ -36,22 +36,8 @@ const query = gql`
         lat
         lng
       }
-      followers{
-        _id
-        firstName
-        lastName
-        username
-        image
-        facebookID
-      }
-      followee{
-        _id
-        firstName
-        lastName
-        username
-        image
-        facebookID
-      }
+      followers
+      followee
     }
   }
 `;

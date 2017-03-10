@@ -12,7 +12,7 @@ const resolvers = {
   },
   Mutation: {
     addPost(obj, args, context) {
-      const newPost = {type: args.type, handle: context.user.userName, message: args.message};
+      const newPost = {type: args.type, handle: context.user.userName, message: args.message, userId: context.user._id};
 
       return context.Posts.addPost(newPost);
     }

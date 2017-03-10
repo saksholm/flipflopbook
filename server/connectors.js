@@ -1,6 +1,7 @@
 import {Posts} from './collections';
 import {currentTimestamp} from './tools';
 
+
 export default class PostsRepository {
   getPosts(skip) {
     // we can implement skip feature later
@@ -13,6 +14,7 @@ export default class PostsRepository {
       type: obj.type,
       message: obj.message,
       handle: obj.handle,
+      userId: obj.userId,
       timestamp: currentTimestamp(),
       seenBy: [],
     };

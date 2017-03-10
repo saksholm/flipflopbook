@@ -41,6 +41,7 @@ Accounts.onLogin((attempt) => {
  });
 
 Meteor.startup(() => {
+  /*
   const totalPosts = Posts.find({}).count();
   if(totalPosts === 0) {
     postsMockData.map((post) => {
@@ -50,4 +51,5 @@ Meteor.startup(() => {
 
     console.log("Added some posts mockdata to you!");
   }
+  */
 });

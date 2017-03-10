@@ -7,7 +7,8 @@ const resolvers = {
       return context.Posts.getPosts();
     },
     currentUser(obj, args, context){
-      return context.user;
+      console.log("user in resolvers", context.user)
+      return context.user.profile;
     }
   },
   Mutation: {

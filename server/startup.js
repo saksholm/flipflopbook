@@ -11,9 +11,6 @@ Accounts.onCreateUser((options, user) => {
   return Object.assign({}, user, {userName});
 });
 
-
-
-
 Accounts.onLogin((attempt) => {
    //console.log("attempt", attempt.connection);
    console.log("user", Meteor.user());
@@ -26,12 +23,15 @@ Accounts.onLogin((attempt) => {
              firstName:user.services.facebook.first_name,
              lastName:user.services.facebook.last_name,
              username:user.services.facebook.name,
-             image:"http://",
+             image:"https://graph.facebook.com/"+user.services.facebook.id+"/picture?type=large",
+             facebookID:user.services.facebook.id,
              location:{
                name:"",
                lat:0,
                lng:0
-             }
+             },
+             followee:[],
+             followers:[]
          }
        }
      });

@@ -6,6 +6,7 @@ type User {
     lastName: String!,
     username: String!
     image: String!,
+    facebookID: String!,
     location: Location,
     followee: [User]!,
     followers: [User]!

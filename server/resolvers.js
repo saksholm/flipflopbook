@@ -7,7 +7,6 @@ const resolvers = {
       return context.Posts.getPosts();
     },
     currentUser(obj, args, context){
-      console.log("user in resolvers", context.user)
       return context.user.profile;
     }
   },

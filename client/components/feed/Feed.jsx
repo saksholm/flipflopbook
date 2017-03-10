@@ -6,7 +6,7 @@ const Feed = (props, context) => {
   return (
       <div className='Feed content'>
         {props.hideForm ? "" : <PostForm /> }
-        <PostList />
+        <PostList own={props.own}/>
       </div>
       )
 }

@@ -1,0 +1,28 @@
+.PostContainer {
+  margin: 3px;
+  border: 1px solid #f0f0f0;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}
+
+.PostContainer .postHeader {
+}
+
+.PostContainer .postTime {
+  float: left;
+  padding: 8px 5px 5px 5px;
+  font-size: 8pt;
+}
+
+.PostContainer .postAuthor {
+  float: left;
+  padding: 5px 20px 5px 10px;
+}
+
+.PostContainer .postBody {
+  clear: both;
+}
+
+.PostContainer .postContent {
+  padding: 5px 0px 5px 10px;
+}

@@ -21,23 +21,17 @@ export class PostForm extends React.Component {
       if(this.state.newMessage) {
         this.props.submit(this.state.newMessage);
         this.setState({newMessage: ''});
-
-        // const content = Meteor.user().profile.name;
-        // this.props.submit({variables: {channelName: this.props.channelName, handle:name, message:this.refs.message.value}})
-        // this.refs.message.value = '';
       }
     }
 
     render() {
 
-        return (
-          <div className="PostForm">
-            <form onSubmit={e => this.onSubmit(e)}>
-              <input type="text" ref={e => (this.input = e)} value={this.state.newMessage} onChange={e => this.setState({newMessage: e.target.value}) } />
-              <input type="submit"/>
-            </form>
-          </div>
-        )
+      return (
+        <form className="PostForm" onSubmit={e => this.onSubmit(e)}>
+          <input className="inputField" type="text" ref={e => (this.input = e)} value={this.state.newMessage} onChange={e => this.setState({newMessage: e.target.value}) } />
+          <input className="inputSubmit" type="submit"/>
+        </form>
+      )
     }
 }
 

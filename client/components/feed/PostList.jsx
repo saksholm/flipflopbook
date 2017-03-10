@@ -2,6 +2,7 @@ import React from 'react';
 import Post from './Post.jsx';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
+import {Meteor} from 'meteor/meteor';
 
 export class PostList extends React.Component {
 /*
@@ -36,8 +37,8 @@ export class PostList extends React.Component {
 
 
 const query = gql`
-  query Posts {
-    posts {
+  query Posts ($own: Boolean, $userId: String) {
+    posts (own: $own, userId: $userId) {
       _id type message handle timestamp seenBy
     }
   }
@@ -45,8 +46,13 @@ const query = gql`
 
 const PostListWithData = graphql(query, {
   options: ownProps => {
+    console.log("this is ownProps", ownProps);
     return {
       pollInterval: 500,
+      variables: {
+        own: ownProps.own ? true : false,
+        userId: Meteor.userId(),
+      }
     }
   },
 })(PostList);

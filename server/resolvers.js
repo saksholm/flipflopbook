@@ -1,16 +1,17 @@
 // import { PointObject } from 'graphql-geojson';
+import {Meteor} from 'meteor/meteor';
 
 const resolvers = {
 //  PointObject: PointObject,
   Query: {
     posts(obj, args, context) {
-      return context.Posts.getPosts();
+      return context.Posts.getPosts(args.own, args.userId);
     },
     currentUser(obj, args, context){
       return context.user.profile;
     },
     users(obj, args, context){
-      return context.users;
+      return Meteor.users.find({},{fields:{usrname:1,profile:1}}).fetch();
     }
   },
   Mutation: {

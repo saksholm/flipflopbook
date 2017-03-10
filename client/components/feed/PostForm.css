@@ -1,0 +1,17 @@
+.PostForm {
+  margin: 5px 0px 10px 0px;
+}
+
+.PostForm .inputField {
+  font-size: 16pt;
+  border-radius: 7px;
+  width: 60%;
+}
+
+.PostForm .inputSubmit {
+  font-size: 16pt;
+  background-color: white;
+  border-radius: 7px;
+  padding: 0px 10px;
+  margin-left: 20px;
+}

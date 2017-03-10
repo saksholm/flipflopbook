@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {Meteor} from 'meteor/meteor';
-var FontAwesome = require('react-fontawesome');
+import FontAwesome from 'react-fontawesome';
 
 
 export default class MenuBar extends React.Component {
   handleLogout(e){
-        Meteor.logout();
+      e.preventDefault();
+      Meteor.logout();
   }
 
   render() {
@@ -15,7 +16,7 @@ export default class MenuBar extends React.Component {
         <Link to="/profile" activeClassName="active"><FontAwesome name='user' /><span className='tag'>Profile</span></Link>
         <Link to="/feed" activeClassName="active"><FontAwesome name='list-alt' /><span className='tag'>Feed</span></Link>
         <Link to="/people" activeClassName="active"><FontAwesome name='users' /><span className='tag'>People</span></Link>
-        <Link to="#" activeClassName="active" className="logout"><FontAwesome name='sign-out' /><div onClick={e => (this.handleLogout(e))}>Logout</div></Link>
+        <span onClick={e => (this.handleLogout(e))}><Link to="#" activeClassName="active" className="logout" ><FontAwesome name='sign-out' /><div >Logout</div></Link></span>
       </div>
           )
         }

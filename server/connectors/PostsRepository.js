@@ -1,5 +1,5 @@
-import {Posts} from './collections';
-import {currentTimestamp} from './tools';
+import {Posts} from '../collections';
+import {currentTimestamp} from '../tools';
 
 
 export default class PostsRepository {

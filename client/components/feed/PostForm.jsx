@@ -17,14 +17,15 @@ export class PostForm extends React.Component {
     }
 
     onSubmit(e) {
-        e.preventDefault();
-
+      e.preventDefault();
+      if(this.state.newMessage) {
         this.props.submit(this.state.newMessage);
         this.setState({newMessage: ''});
 
         // const content = Meteor.user().profile.name;
         // this.props.submit({variables: {channelName: this.props.channelName, handle:name, message:this.refs.message.value}})
         // this.refs.message.value = '';
+      }
     }
 
     render() {

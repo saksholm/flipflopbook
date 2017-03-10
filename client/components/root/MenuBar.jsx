@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {Meteor} from 'meteor/meteor';
-var FontAwesome = require('react-fontawesome');
+import FontAwesome from 'react-fontawesome';
 
 
 export default class MenuBar extends React.Component {

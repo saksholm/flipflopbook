@@ -2,7 +2,7 @@
   "name": "flipflopbook",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor --settings settings.json"
   },
   "dependencies": {
     "apollo-client": "^0.10.1",

@@ -56,13 +56,14 @@ export default graphql(mutation, {
       upload: base64ImageData => {
         return mutate({
           variables: {
-            channel: ownProps.channel.name,
+
+            post: ownProps.post.message,
             base64ImageData,
           },
           updateQueries: {
-            Feed: (previousResult, { mutationResult }) => {
+            Post: (previousResult, { mutationResult }) => {
               return update(previousResult, {
-                channel: {
+                post: {
                   messages: {
                     $push: [mutationResult.data.postImage],
                   },

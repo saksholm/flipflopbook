@@ -4,7 +4,7 @@ import {currentTimestamp} from './tools';
 export default class PostsRepository {
   getPosts(skip) {
     // we can implement skip feature later
-    const posts = Posts.find({}).fetch();
+    const posts = Posts.find({}, {sort: {timestamp: -1}}).fetch();
     return posts;
   }
 

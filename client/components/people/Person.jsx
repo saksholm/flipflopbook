@@ -7,6 +7,7 @@ export default class Person extends React.Component {
           <div>
             <div className="Person">
               Someone's profile
+              <img src="https://graph.facebook.com/10155098577208234/picture?type=large" />
             </div>
 
             <Follow />

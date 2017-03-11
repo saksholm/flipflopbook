@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
+import PostImageForm from './PostImageForm.jsx';
 
 export class PostForm extends React.Component {
     constructor(props) {
@@ -27,10 +28,13 @@ export class PostForm extends React.Component {
     render() {
 
       return (
+        <div className="PostForm">
+        <PostImageForm />
         <form className="PostForm" onSubmit={e => this.onSubmit(e)}>
           <input className="inputField" type="text" ref={e => (this.input = e)} value={this.state.newMessage} onChange={e => this.setState({newMessage: e.target.value}) } />
           <input className="inputSubmit" type="submit"/>
         </form>
+      </div>
       )
     }
 }

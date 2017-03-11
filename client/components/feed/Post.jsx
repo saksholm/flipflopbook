@@ -1,6 +1,5 @@
 import React from 'react';
 import timeago from 'timeago.js';
-import PostImageForm from './PostImageForm.jsx';
 
 export default class Post extends React.Component {
     render() {
@@ -12,7 +11,6 @@ export default class Post extends React.Component {
                 <div className="postTime">{ta}</div>
               </div>
               <div className="postBody">
-                <PostImageForm />
                 <div className="postContent">{this.props.content}</div>
               </div>
             </div>

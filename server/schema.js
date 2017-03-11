@@ -12,11 +12,21 @@ type User {
     followers: [String]!
 }
 
-type Location{
+type Location {
   name: String!,
   lat: Float!,
   lng: Float!
 }
+
+type FlipFlop {
+  userId: String!,
+  type: String!,
+}
+
+type Follow {
+  userId: String
+}
+
 
 type Post {
   _id: ID,
@@ -26,7 +36,8 @@ type Post {
   handle: String!,
   timestamp: Int!,
   seenBy: [String]!,
-  userId: String!
+  userId: String!,
+  votes: [FlipFlop]!
 }
 
 type Query {
@@ -37,6 +48,8 @@ type Query {
 
 type Mutation {
   addPost(type: String!, message: String!, lat: Float, lng: Float): Post!
+  addVote(type: String!, userId: String!, postId: String!): FlipFlop!
+  follow(userId: String!, ownId: String!): Follow
 }
 
 schema {

@@ -2,7 +2,8 @@
   "name": "flipflopbook",
   "private": true,
   "scripts": {
-    "start": "meteor --settings settings.json"
+    "start": "meteor --settings settings.json",
+    "production": "DEPLOY_HOSTNAME=eu-west-1.galaxy.meteor.com meteor deploy flipflopbook.website --owner befiware --settings settings.json"
   },
   "dependencies": {
     "apollo-client": "^0.10.1",

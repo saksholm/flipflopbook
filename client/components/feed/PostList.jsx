@@ -26,7 +26,7 @@ export class PostList extends React.Component {
             <div>
               {this.props.data.posts.map(post => {
                 return (
-                  <Post key={post._id} author={post.handle} time={post.timestamp} type={post.type} content={post.message} />
+                  <Post key={post._id} author={post.handle} time={post.timestamp} type={post.type} content={post.message} postId={post._id} votes={post.votes}/>
                 )
               }
               )}
@@ -39,16 +39,24 @@ export class PostList extends React.Component {
 const query = gql`
   query Posts ($own: Boolean, $userId: String) {
     posts (own: $own, userId: $userId) {
-      _id type message handle timestamp seenBy
+      _id
+      type
+      message
+      handle
+      timestamp
+      votes {
+        type
+        userId
+      }
+      seenBy
     }
   }
 `;
 
 const PostListWithData = graphql(query, {
   options: ownProps => {
-    // console.log("this is ownProps", ownProps);
     return {
-      // pollInterval: 500,
+      pollInterval: 500,
       variables: {
         own: ownProps.own ? true : false,
         userId: Meteor.userId(),

@@ -1,0 +1,11 @@
+.Follow {
+  background-color: white;
+}
+
+.Follow .followButton {
+  font-size: 14pt;
+  background-color: white;
+  color: black;
+  border: 2px solid #f0f0f0;
+  border-radius: 7px;
+}

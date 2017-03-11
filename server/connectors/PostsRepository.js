@@ -1,6 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 import {Posts} from '../collections';
 import {currentTimestamp} from '../tools';
+import {check} from 'meteor/check';
 
 export default class PostsRepository {
   getPosts(own,userId) {
@@ -35,6 +36,7 @@ export default class PostsRepository {
       handle: obj.handle,
       userId: obj.userId,
       timestamp: currentTimestamp(),
+      votes: [],
       seenBy: [],
     };
 
@@ -42,6 +44,47 @@ export default class PostsRepository {
     addObj._id = id;
 
     return addObj;
+
+  }
+
+  addVote(obj) {
+    check(obj.postId, String);
+    check(obj.userId, String);
+    check(obj.type, String);
+
+    if(obj.postId && obj.userId) {
+      const verify = Posts.findOne({_id: obj.postId}, {fields: {_id: 1} });
+
+      if(verify._id) {
+        const addVote = {
+          type: obj.type,
+          userId: obj.userId,
+        };
+
+        Posts.update({_id: verify._id}, {$push: {votes: addVote }}, {upsert: true, multi:false});
+
+        const returnObj = {
+          type: obj.type,
+          userId: obj.userId,
+        };
+        return returnObj;
+      }
+
+      return null;
+    }
+  }
+
+  follow(obj) {
+    check(obj.userId, String);
+    check(obj.ownId, String);
+
+    const verify = Meteor.users.findOne({_id: obj.userId}, {fields: {_id: 1}});
+    if(verify._id) {
+      Meteor.users.update({_id: verify._id}, {$push: {"profile.followers": obj.ownId }} );
+      Meteor.users.update({_id: obj.ownId}, {$push: {"profile.followee": verify._id }} );
+    }
+
+    return {userId: verify._id}
 
   }
 }

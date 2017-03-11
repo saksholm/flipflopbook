@@ -42,20 +42,19 @@ export class PostForm extends React.Component {
 }
 
 const mutation = gql`
-  mutation addPost($message: String!, $type: String!, $lat: Float, $lng: Float ) {
+  mutation addPost($message: String!, $type: String!, $lat: Float, $lng: Float) {
     addPost(message: $message, type: $type, lat: $lat, lng: $lng ) {
       _id type handle message timestamp seenBy
+      location {lat lng}
     }
   }
 `;
 
 const PostFormContainer = graphql(mutation, {
   props: ({mutate, ownProps}) => {
-    console.log('PostForm graphql mutation', ownProps);
+//    console.log('PostForm graphql mutation', ownProps);
     return {
       submit: (message) => {
-        console.log('Sending', ownProps.location);
-
         mutate({
           variables: {
             type: 'post',
@@ -63,15 +62,19 @@ const PostFormContainer = graphql(mutation, {
             lat: ownProps.location.latitude,
             lng: ownProps.location.longitude
           },
-          updateQueries: {
-            Posts: (previousResult, {mutationResult}) => {
-              return update(previousResult, {
-                posts: {
-                  $unshift: [mutationResult.data.addPost],
-                }
-              });
-            }
-          },
+          refetchQueries: ['Posts'],
+          // updateQueries: {
+          //   Posts: (previousResult, {mutationResult}) => {
+          //     const updateresult= update(previousResult, {
+          //       posts: {
+          //         $unshift: [mutationResult.data.addPost],
+          //       }
+          //     });
+          //
+          //     console.log({previousResult, mutationResult, updateresult})
+          //     return updateresult;
+          //   }
+          // },
         })
       }
     }

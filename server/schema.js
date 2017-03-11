@@ -33,6 +33,7 @@ type Post {
   type: String!,
   message: String,
   image: String,
+  location: Location,
   handle: String!,
   timestamp: Int!,
   seenBy: [String]!,
@@ -41,13 +42,13 @@ type Post {
 }
 
 type Query {
-  posts: [Post]!,
+  posts(own: Boolean, userId: String): [Post]!
   currentUser: User!,
   users:[User]!
 }
 
 type Mutation {
-  addPost(type: String!, message: String!, lat: Float, lng: Float): Post!
+  addPost(type: String!, message: String!, lat: Float, lng: Float, image: String): Post!
   addVote(type: String!, userId: String!, postId: String!): FlipFlop!
   follow(userId: String!, ownId: String!): Follow
 }

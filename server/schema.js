@@ -23,6 +23,11 @@ type FlipFlop {
   type: String!,
 }
 
+type Follow {
+  userId: String
+}
+
+
 type Post {
   _id: ID,
   type: String!,
@@ -43,6 +48,7 @@ type Query {
 type Mutation {
   addPost(type: String!, message: String!): Post!,
   addVote(type: String!, userId: String!, postId: String!): FlipFlop!
+  follow(userId: String!, ownId: String!): Follow
 }
 
 schema {

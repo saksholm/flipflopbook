@@ -73,4 +73,18 @@ export default class PostsRepository {
       return null;
     }
   }
+
+  follow(obj) {
+    check(obj.userId, String);
+    check(obj.ownId, String);
+
+    const verify = Meteor.users.findOne({_id: obj.userId}, {fields: {_id: 1}});
+    if(verify._id) {
+      Meteor.users.update({_id: verify._id}, {$push: {"profile.followers": obj.ownId }} );
+      Meteor.users.update({_id: obj.ownId}, {$push: {"profile.followee": verify._id }} );
+    }
+
+    return {userId: verify._id}
+
+  }
 }

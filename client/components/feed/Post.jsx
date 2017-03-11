@@ -1,6 +1,6 @@
 import React from 'react';
 import timeago from 'timeago.js';
-import PostImageForm from './PostImageForm.jsx';
+//import PostImageForm from './PostImageForm.jsx';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import {Meteor} from 'meteor/meteor';

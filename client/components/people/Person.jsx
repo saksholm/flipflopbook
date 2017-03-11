@@ -6,11 +6,20 @@ export default class Person extends React.Component {
         return (
           <div>
             <div className="Person">
-              Someone's profile
-              <img src="https://graph.facebook.com/10155098577208234/picture?type=large" alt='Profile' />
+              <div className="wrapper">
+                <div className="imageWrapper">
+                  <img className="image" src={"https://graph.facebook.com/"+ this.props.data.facebookID + "/picture"} alt='Profile' />
+                </div>
+
+                <div className="info">
+                  {this.props.data.username}'s profile
+                </div>
+              </div>
+              <div className="followButton">
+                <Follow userId={this.props.data._id} following={this.props.following}/>                
+              </div>
             </div>
 
-            <Follow />
           </div>
             )
     }

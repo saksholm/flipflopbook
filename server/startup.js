@@ -1,7 +1,8 @@
 import { Accounts } from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
-import {Posts} from './collections';
-import postsMockData from './postsMockData';
+// import {Posts} from './collections';
+// import postsMockData from './postsMockData';
+import oauthFacebook from './oauth/facebook';
 
 Accounts.onCreateUser((options, user) => {
   const firstName = user.services.facebook.first_name;
@@ -41,6 +42,7 @@ Accounts.onLogin((attempt) => {
  });
 
 Meteor.startup(() => {
+  oauthFacebook();
   /*
   const totalPosts = Posts.find({}).count();
   if(totalPosts === 0) {

@@ -32,6 +32,7 @@ export class PeopleList extends React.Component {
               if(user._id !== Meteor.userId() ) {
                 return <Person key={user._id} data={user} following={following}/>
               }
+
               return true;
             } )}
           </div>

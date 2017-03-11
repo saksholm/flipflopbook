@@ -25,8 +25,11 @@ export default class PostsRepository {
       return feed;
     }
 
-    const posts = Posts.find({}, {sort: {timestamp: -1}}).fetch();
-    return posts;
+    if(own && userId) {
+      const posts = Posts.find({userId: userId}, {sort: {timestamp: -1}}).fetch();
+      return posts;
+    }
+
   }
 
   addPost(obj) {

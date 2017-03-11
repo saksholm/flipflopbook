@@ -21,7 +21,8 @@ type Location{
 type Post {
   _id: ID,
   type: String!,
-  message: String!,
+  message: String,
+  image: String,
   handle: String!,
   timestamp: Int!,
   seenBy: [String]!,
@@ -29,19 +30,16 @@ type Post {
 }
 
 type Query {
-  posts(own: Boolean, userId: String): [Post]!,
+  posts: [Post]!,
   currentUser: User!,
   users:[User]!
 }
 
 type Mutation {
-  addPost(type: String!, message: String!): Post!
+  addPost(type: String!, message: String!, lat: Float, lng: Float): Post!
 }
 
 schema {
   query: Query,
   mutation: Mutation,
-}
-
-
-`;
+}`;

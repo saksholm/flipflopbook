@@ -3,7 +3,7 @@ import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
 import PostImageForm from './PostImageForm.jsx';
-import GeoLocation from './GeoLocation.jsx';
+import WithLocation from './WithLocation.jsx';
 
 export class PostForm extends React.Component {
     constructor(props) {
@@ -27,14 +27,14 @@ export class PostForm extends React.Component {
     }
 
     render() {
-
+      console.log('PostForm', this.props.location);
       return (
         <div className="PostForm">
-        <GeoLocation />
+
         <PostImageForm />
         <form className="PostForm" onSubmit={e => this.onSubmit(e)}>
           <input className="inputField" type="text" ref={e => (this.input = e)} value={this.state.newMessage} onChange={e => this.setState({newMessage: e.target.value}) } />
-          <input className="inputSubmit" type="submit"/>
+          <input className="inputSubmit" type="submit" disabled={!this.props.location} />
         </form>
       </div>
       )
@@ -42,21 +42,26 @@ export class PostForm extends React.Component {
 }
 
 const mutation = gql`
-  mutation addPost($message: String!, $type: String!) {
-    addPost(message: $message, type: $type) {
+  mutation addPost($message: String!, $type: String!, $lat: Float, $lng: Float ) {
+    addPost(message: $message, type: $type, lat: $lat, lng: $lng ) {
       _id type handle message timestamp seenBy
     }
   }
 `;
 
-export default graphql(mutation, {
+const PostFormContainer = graphql(mutation, {
   props: ({mutate, ownProps}) => {
+    console.log('PostForm graphql mutation', ownProps);
     return {
       submit: (message) => {
+        console.log('Sending', ownProps.location);
+
         mutate({
           variables: {
             type: 'post',
-            message
+            message,
+            lat: ownProps.location.latitude,
+            lng: ownProps.location.longitude
           },
           updateQueries: {
             Posts: (previousResult, {mutationResult}) => {
@@ -72,3 +77,5 @@ export default graphql(mutation, {
     }
   }
 })(PostForm);
+
+export default WithLocation(PostFormContainer);

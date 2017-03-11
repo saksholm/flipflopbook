@@ -46,9 +46,9 @@ const query = gql`
 
 const PostListWithData = graphql(query, {
   options: ownProps => {
-    console.log("this is ownProps", ownProps);
+    // console.log("this is ownProps", ownProps);
     return {
-      pollInterval: 500,
+      // pollInterval: 500,
       variables: {
         own: ownProps.own ? true : false,
         userId: Meteor.userId(),

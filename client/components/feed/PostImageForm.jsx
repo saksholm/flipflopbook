@@ -2,6 +2,8 @@ import React from 'react';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
+import Dropzone from 'react-dropzone';
+
 
 import fileToBase64 from '../../utils/fileToBase64';
 
@@ -29,6 +31,10 @@ class PostImageForm extends React.Component {
   render() {
     const {isBusy} = this.state;
     return <div className="PostImageForm">
+      {/* <Dropzone
+        multiple={false} accept="image/*" onDrop={this.onImageDrop.bind(this)}>
+        <p>Drop an image or click to select a file to upload.</p>
+      </Dropzone> */}
       <input
         type="file"
         accept="image/png, image/jpeg, image/gif"

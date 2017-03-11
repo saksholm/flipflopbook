@@ -78,7 +78,7 @@ type User {
 const PeopleListWithData = graphql(query, {
   options: ownProps => {
     return {
-      pollInterval: 1000,
+      pollInterval: 5000,
     }
   },
 })(PeopleList);

@@ -43,6 +43,11 @@ const query = gql`
       type
       message
       handle
+      image
+      location {
+        lat
+        lng
+      }
       timestamp
       votes {
         type
@@ -56,7 +61,7 @@ const query = gql`
 const PostListWithData = graphql(query, {
   options: ownProps => {
     return {
-      pollInterval: 500,
+//      pollInterval: 500,
       variables: {
         own: ownProps.own ? true : false,
         userId: Meteor.userId(),

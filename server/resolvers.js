@@ -5,37 +5,23 @@ const resolvers = {
 //  PointObject: PointObject,
   Query: {
     posts(obj, args, context) {
+
       return context.Posts.getPosts(args.own, args.userId);
     },
     currentUser(obj, args, context){
       return context.user.profile;
     },
     users(obj, args, context){
-      const users =  Meteor.users.find({},{fields:{userName:1,profile:1}}).fetch();
-
-      // small hack to fetch data properly
-      return users.map((user) => {
-        if(user && user.profile) {
-          return { ...user, ...user.profile };
-        } else { return null }
-      });
+      return Meteor.users.find({},{fields:{username:1,profile:1}}).fetch();
     }
   },
   Mutation: {
     addPost(obj, args, context) {
-      const newPost = {type: args.type, handle: context.user.userName, message: args.message, userId: context.user._id};
+      const {lat, lng} = args;
+      const location = {lat, lng};
+      const newPost = {type: args.type, handle: context.user.userName, message: args.message, userId: context.user._id, location};
 
       return context.Posts.addPost(newPost);
-    },
-    addVote(obj, args, context) {
-      const newVote = {type: args.type, postId: args.postId, userId: context.user._id };
-      return context.Posts.addVote(newVote);
-    },
-    follow(obj, args, context) {
-      if(args.userId) {
-        const newFollow = {userId: args.userId, ownId: context.user._id};
-        return context.Posts.follow(newFollow);
-      }
     }
   }
 }

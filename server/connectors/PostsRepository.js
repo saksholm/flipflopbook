@@ -38,6 +38,8 @@ export default class PostsRepository {
       message: obj.message,
       handle: obj.handle,
       userId: obj.userId,
+      image: obj.image,
+      location: obj.location,
       timestamp: currentTimestamp(),
       votes: [],
       seenBy: [],

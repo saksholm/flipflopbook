@@ -27,7 +27,7 @@ export class PostForm extends React.Component {
     }
 
     render() {
-      console.log('PostForm', this.props.location);
+//      console.log('PostForm', this.props.location);
       return (
         <div className="PostForm">
 

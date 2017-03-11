@@ -12,7 +12,15 @@ const resolvers = {
       return context.user.profile;
     },
     users(obj, args, context){
-      return Meteor.users.find({},{fields:{username:1,profile:1}}).fetch();
+      const users =  Meteor.users.find({},{fields:{userName:1,profile:1}}).fetch();
+
+      // small hack to fetch data properly
+      return users.map((user) => {
+        if(user && user.profile) {
+          return { ...user, ...user.profile };
+        } else { return null }
+      });
+//      return Meteor.users.find({},{fields:{username:1,profile:1}}).fetch();
     }
   },
   Mutation: {

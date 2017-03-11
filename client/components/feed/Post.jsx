@@ -10,7 +10,6 @@ export class Post extends React.Component {
     flipFlop(type) {
       this.props.submit(type);
     }
-
     render() {
         const ta = new timeago().format(this.props.time * 1000);
         const flips = this.props.votes.filter( (vote) => {
@@ -35,7 +34,6 @@ export class Post extends React.Component {
                 </div>
               </div>
               <div className="postBody">
-                <PostImageForm />
                 <div className="postContent">{this.props.content}</div>
               </div>
             </div>
